@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         case Subtract = "-"
         case Add = "+"
         case Empty = "Empty"
+        case Clear = "Clear"
     }
     
     @IBOutlet weak var outputLbl: UILabel!
@@ -69,9 +70,19 @@ class ViewController: UIViewController {
         processOperation(currentOperation)
     }
     
+    @IBAction func onClearPressed(sender: AnyObject) {
+        playSound()
+        if currentOperation != Operation.Empty {
+        currentOperation = Operation.Empty
+        }
+        result = "0"
+        outputLbl.text = result
+        leftValStr = ""
+    }
+    
+    
     func processOperation(op: Operation) {
         playSound()
-        
         if currentOperation != Operation.Empty {
             //Run some math
             if runningNumber != "" {
