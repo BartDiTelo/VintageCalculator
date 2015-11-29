@@ -78,6 +78,8 @@ class ViewController: UIViewController {
         result = "0"
         outputLbl.text = result
         leftValStr = ""
+        runningNumber = ""
+        rightValStr = ""
     }
     
     
